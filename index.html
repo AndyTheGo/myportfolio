@@ -30,9 +30,9 @@
 						</div>
 						<nav>
 							<ul>
-								<li><a href="#About Me">About Me</a></li>
+								<li><a href="#About">About Me</a></li>
 								<li><a href="#projects">Projects</a></li>
-								<li><a href="#Cool Stuff">More</a></li>
+								<li><a href="#Cool">More</a></li>
 								<li><a href="#contact">Contact</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
@@ -43,7 +43,7 @@
 					<div id="main">
 
 						<!-- Intro -->
-							<article id="intro">
+							<article id="About">
 								<h2 class="major">About Me</h2>
 								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
 								<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
@@ -51,11 +51,40 @@
 							</article>
 
 						<!-- Work -->
-							<article id="work">
-								<h2 class="major">Work</h2>
+							<article id="projects">
+								<h2 class="major">Portfolio</h2>
 								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
+								<h2>Four Bar Mechanism Design for Automated Trash Disposal</h2>
+				
+
+								<h3>Objective</h3>
+								<p>The purpose of this project was to develop a four-bar mechanism that could automate the disposal process of a trash container. The goal was to ensure that when a user deposits trash onto a tray, the mechanism moves it towards an opening at the back of the bin.</p>
+
+								<h3>Context</h3>
+								<p>Four-bar linkages are commonly used for motion control in mechanical systems. This design required precise point tracking to ensure that the tray follows the intended motion path while adhering to spatial constraints. The pivot points were required to be positioned along the sides of the trash can without interfering with the bin's body.</p>
+
+								<h3>Design Process</h3>
+								<h4>1. Initial Modeling in Math Illustrations</h4>
+								<p>The first step was to define the linkage geometry and identify potential pivot points. A set of perpendicular bisectors was drawn between initial and intermediate points to determine the optimal pivot locations. The challenge arose when one pivot extended outside the allowable region, requiring a redesign.</p>
+
+								<h4>2. Refining Pivot Locations</h4>
+								<p>Instead of placing pivots at the endpoints of the tray, they were moved closer together, allowing for a more compact and feasible mechanism. By ensuring collinearity at a specific point in the motion cycle, the sum of two links equaled the sum of the other two, maintaining smooth motion.</p>
+								<span class="image main"><img src="images/mathillustrations.png" alt=""></span>
+
+								<h4>3. Transition to SolidWorks</h4>
+								<p>The final design was transferred into SolidWorks for precise modeling. The origin was set at the bottom-left corner of the bin to ensure accurate link placement. The linkage dimensions were extracted directly from the Math Illustrations model, with final link lengths and pivot coordinates defining the structure.</p>
+
+								<h4>4. Error Adjustments</h4>
+								<p>Minor inaccuracies were introduced due to coordinate rounding, leading to slight deviations in SolidWorks. To accommodate this, a small slot was added at one of the tray’s pivot points, allowing slight movement flexibility without compromising structural integrity.</p>
+
+								<h3>Motion Study & Animation</h3>
+								<p>The driving link was selected on the right side of the mechanism, as shown in the video simulation. A motion analysis determined that the necessary rotation angle for the driving link was <strong>206 degrees</strong>. The movement was simulated using an oscillating motor set to travel <strong>206 degrees back and forth at a frequency of 0.2 Hz</strong>.</p>
+
+								<h3>Results & Final Design Demonstration</h3>
+								<p>The final mechanism successfully moves the trash tray in the desired path while maintaining constraints.</p>
+								<video class="image main" autoplay loop>
+									<source src="images/newAssem1.mp4" type="video/mp4">
+								</video>
 							</article>
 
 						<!-- About -->
