@@ -83,9 +83,75 @@
 
 								<h3>Results & Final Design Demonstration</h3>
 								<p>The final mechanism successfully moves the trash tray in the desired path while maintaining constraints.</p>
-								<video class="image main" autoplay loop controls>
+								<video class="image main" autoplay loop>
 									<source src="images/newAssem1.mp4" type="video/mp4">
 								</video>
+								<h2>Motor Speed Control & Dynamic Beam Transport</h2>
+								<video class="image main" autoplay loop>
+									<source src="images/ME360Assignment2Simulation.mp4" type="video/mp4">
+								</video>
+								<h3>Objective</h3>
+								<p>This project aimed to design and prototype a system capable of transporting a 1-foot vertical aluminum beam across a 10-foot distance and back, without the beam toppling. The key goal was to minimize travel time while maintaining dynamic stability through motor speed control.</p>
+							
+								<h3>Context</h3>
+								<p>This assignment introduced multibody dynamic simulation using SolidWorks and required the implementation of a real-world control strategy using an Arduino and encoder feedback. The project was part of ME360: Electromechanical Design and involved both simulation and hands-on prototyping.</p>
+							
+								<h3>Design Process</h3>
+								
+								<h4>1. Theoretical Modeling</h4>
+								<p>The initial calculations determined the necessary acceleration and wheel dimensions to achieve the fastest stable transport. The maximum speed was found using energy-based kinematics, and this value was used to determine optimal wheel size for the gear motor setup.</p>
+								<span class="image main"><img src="images/theoretical_calc.jpg" alt="Theoretical Calculations"/></span>
+							
+								<h4>2. RPM Calculation via Arduino</h4>
+								<p>The encoder speed was sampled over short intervals using an Arduino-based function, converting angular displacement to RPM. This allowed the platform to modulate speed in real-time.</p>
+								<pre><code>
+							double getSpeed(){
+								long int count0, count1;
+								double theta0, theta1;
+								double w;
+							
+								count0 = count;
+								theta0 = count0 * 1.5; // Degrees
+								delay(100); // One tenth of a second
+								count1 = count;
+								theta1 = count1 * 1.5;
+							
+								w = (theta1 - theta0) / (0.1); // deg/s
+								return (w / 360.0 * 60.0); // RPM
+							}
+								</code></pre>
+							
+								<h4>3. Simulation Results</h4>
+								<p>The simulation showed that a maximum velocity of 5.18 ft/s would be required for optimal performance. This value guided the design of the wheel size and motor control strategy.</p>
+							
+								<h4>4. Velocity Profile from Experimental Data</h4>
+								<p>The final prototype's velocity profile was recorded and matched the expected triangular acceleration/deceleration pattern. However, real-world constraints affected performance.</p>
+								<span class="image main"><img src="images/velocity_graph.png" alt="Velocity Time Graph" /></span>
+								<span class="image main"><img src="images/velocity_table.png" alt="Velocity Table" /></span>
+							
+								<h3>Results & Final Design Demonstration</h3>
+								<p>The physical prototype successfully transported the beam without it falling. However, due to surface roughness and real-world inconsistencies like motor velocity changes, the platform completed the trip in <strong>11.50 seconds</strong>, which is <strong>3.78 seconds slower</strong> than the theoretical optimum.</p>
+							
+								<video class="image main" autoplay loop>
+									<source src="images/ME360Assignment2Simulation.mp4" type="video/mp4">
+								</video>
+							
+								<h3>Improvements & Reflection</h3>
+								<p>Two main improvements were identified:
+									<ul>
+										<li><strong>O-Ring Integration:</strong> Designing wheels with built-in O-ring slots would enhance traction and dampen impacts from terrain irregularities.</li>
+										<li><strong>Better Wheel Fitment:</strong> Replacing tolerance-fit wheels with press-fit or fixed designs would ensure straighter motion and reduce slippage off the axle.</li>
+									</ul>
+								</p>
+							</article>
+							<!-- Work -->
+
+
+						<!-- About -->
+							<article id="about">
+								<h2 class="major">About</h2>
+								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
+								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
 							</article>
 
 						<!-- Contact -->
