@@ -104,23 +104,25 @@
 							
 								<h4>2. RPM Calculation via Arduino</h4>
 								<p>The encoder speed was sampled over short intervals using an Arduino-based function, converting angular displacement to RPM. This allowed the platform to modulate speed in real-time.</p>
-								<pre><code>
-							double getSpeed(){
-								long int count0, count1;
-								double theta0, theta1;
-								double w;
-							
-								count0 = count;
-								theta0 = count0 * 1.5; // Degrees
-								delay(100); // One tenth of a second
-								count1 = count;
-								theta1 = count1 * 1.5;
-							
-								w = (theta1 - theta0) / (0.1); // deg/s
-								return (w / 360.0 * 60.0); // RPM
-							}
-								</code></pre>
-							
+								<span class="image main">
+									<pre>
+										<code>
+										double getSpeed(){
+											long int count0, count1;
+											double theta0, theta1;
+											double w;
+										
+											count0 = count;
+											theta0 = count0 * 1.5; // Degrees
+											delay(100); // One tenth of a second
+											count1 = count;
+											theta1 = count1 * 1.5;
+										
+											w = (theta1 - theta0) / (0.1); // deg/s
+											return (w / 360.0 * 60.0); // RPM
+										}
+									</code></pre>
+								</span>
 								<h4>3. Simulation Results</h4>
 								<p>The simulation showed that a maximum velocity of 5.18 ft/s would be required for optimal performance. This value guided the design of the wheel size and motor control strategy.</p>
 							
@@ -133,9 +135,9 @@
 								<p>The physical prototype successfully transported the beam without it falling. However, due to surface roughness and real-world inconsistencies like motor velocity changes, the platform completed the trip in <strong>11.50 seconds</strong>, which is <strong>3.78 seconds slower</strong> than the theoretical optimum.</p>
 							
 								<video class="image main" autoplay loop>
-									<source src="images/ME360Assignment2Simulation.mp4" type="video/mp4">
+									<source src="images/IMG_1841.mov" type="video/mp4">
 								</video>
-							
+								<span class="image main"><img src="images/7F535FD4-1337-40A5-B00B-E112B0B65471.jpeg" alt="team photo"/></span>
 								<h3>Improvements & Reflection</h3>
 								<p>Two main improvements were identified:
 									<ul>
