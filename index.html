@@ -54,12 +54,35 @@
 						<!-- Work -->
 							<article id="projects">
 								<h2 class="major">Portfolio</h2>
+								<p>Check out my portfolio below, where all of my projects throughout the years is displayed. Enjoy!</p>
 								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<h2>Four Bar Mechanism Design for Automated Trash Disposal</h2>
-				
+								<ul class="nav-buttons">
+									<li><a href="#ME360">ME 360</a></li>
+								</ul>
+							</article>
 
+							<article id="ME360">
+								<h2>ME 360</h2>
+								<span class="image main"><img src="images/7F535FD4-1337-40A5-B00B-E112B0B65471.jpeg"/></span>
+								<p>ME 360 is a hands-on, project-based course that bridges fundamental engineering analysis with real-world system design. Students learn to integrate mechanical structures, sensors, actuators, and control systems through the use of Arduino, SolidWorks simulation, and physical prototyping. The course emphasizes motor control, PID tuning, linear motion systems, and dynamic simulation. With a focus on teamwork and iteration, students apply computer-aided engineering tools to design, build, and test electromechanical systems that respond to real constraints. Check it out!
+								</p>
+								<ul class="nav-buttons">
+									<li><a href="#1">Four Bar Mechanism for Automated Trash Disposal</a></li>
+								</ul>
+								<ul class="nav-buttons">
+									<li><a href="#2">Motor Speed Control & Dynamic Beam Transport</a></li>
+								</ul>
+								<ul class="nav-buttons">
+									<li><a href="#3">Four-Bar Linkage Tutorial & Force Analysis</a></li>
+								</ul>
+								<ul class="nav-buttons">
+									<li><a href="#4">Cartesian Motion System</a></li>
+								</ul>
+							</article>
+							<article id="1">
+								<h2>Four Bar Mechanism for Automated Trash Disposal</h2>
 								<h3>Objective</h3>
-								<p> This project aimed to develop a four-bar mechanism that could automate the disposal process of a trash container. The goal was to ensure that when a user deposits trash onto a tray, the mechanism moves it towards an opening at the back of the bin.</p>
+								<p>The purpose of this project was to develop a four-bar mechanism that could automate the disposal process of a trash container. The goal was to ensure that when a user deposits trash onto a tray, the mechanism moves it towards an opening at the back of the bin.</p>
 
 								<h3>Context</h3>
 								<p>Four-bar linkages are commonly used for motion control in mechanical systems. This design required precise point tracking to ensure that the tray follows the intended motion path while adhering to spatial constraints. The pivot points were required to be positioned along the sides of the trash can without interfering with the bin's body.</p>
@@ -83,11 +106,14 @@
 
 								<h3>Results & Final Design Demonstration</h3>
 								<p>The final mechanism successfully moves the trash tray in the desired path while maintaining constraints.</p>
-								<video class="image main" autoplay loop controls>
+								<video class="image main" controls loop>
 									<source src="images/newAssem1.mp4" type="video/mp4">
 								</video>
+							</article>
+
+							<article id="2">
 								<h2>Motor Speed Control & Dynamic Beam Transport</h2>
-								<video class="image main" autoplay loop controls>
+								<video class="image main" controls loop>
 									<source src="images/ME360Assignment2Simulation.mp4" type="video/mp4">
 								</video>
 								<h3>Objective</h3>
@@ -134,7 +160,7 @@
 								<h3>Results & Final Design Demonstration</h3>
 								<p>The physical prototype successfully transported the beam without it falling. However, due to surface roughness and real-world inconsistencies like motor velocity changes, the platform completed the trip in <strong>11.50 seconds</strong>, which is <strong>3.78 seconds slower</strong> than the theoretical optimum.</p>
 							
-								<video class="image main" autoplay loop controls>
+								<video class="image main" controls loop>
 									<source src="images/IMG_1841.mov" type="video/mp4">
 								</video>
 								<span class="image main"><img src="images/7F535FD4-1337-40A5-B00B-E112B0B65471.jpeg" alt="team photo"/></span>
@@ -146,6 +172,266 @@
 									</ul>
 								</p>
 							</article>
+
+							<article id="3">
+								<h2>Four-Bar Linkage Tutorial & Force Analysis</h2>
+							  
+								<h3>Objective</h3>
+								<p>The goal of this study was to simulate the dynamics of a four-bar linkage mechanism and analyze the motor torque, bearing forces, and power requirements. The mechanism was actuated at 600 rpm, and results were extracted to identify peak performance values and interpret mechanical behavior such as torque direction changes.</p>
+							  
+								<h3>Design Context</h3>
+								<p>The mechanism consists of a crank, extension link, rocker, and fixed bearings, forming a classic four-bar setup. Once modeled and constrained in SolidWorks, motion analysis was conducted by driving the crank through a rotary motor while logging motor torque and bearing forces across two full cycles (6 seconds at 20 rpm). The motor was later scaled to simulate 600 rpm for power analysis.</p>
+							  
+								<span class="image main"><img src="images/Assem2 (importedmaterial)-1 [MConverter.eu].png" alt="SolidWorks Four-Bar Setup"/></span>
+							  
+								<h3>Motion Study</h3>
+								<p>A rotary motor was applied to the crank, and gravity was introduced to add dynamic realism. Results were exported and processed using Python and Excel. Below is the animation of the simulated mechanism:</p>
+							  
+								<video class="image main" controls loop muted>
+								  <source src="images/Assem2 (importedmaterial).mp4" type="video/mp4">
+								</video>
+							  
+								<h3>Results</h3>
+
+								<h4>a. Maximum Motor Torque</h4>
+								<p>Using the exported torque data from SolidWorks, the peak torque reached was:</p>
+								<ul style="padding-left: 1em; margin-bottom: 2rem;">
+								<li><strong>23,071 N·mm (23.07 N·m)</strong></li>
+								<li>This peak occurred around <strong>2.28 seconds</strong>, corresponding to a crank angle of <strong>273.6°</strong>.</li>
+								</ul>
+
+								<h4>b. Crank Angle at Max Torque</h4>
+								<p>The crank required <strong>273.6° of rotation</strong> to reach the torque maximum in each cycle.</p>
+
+								<h4>c. Maximum Vertical Force on Bearings</h4>
+								<p><strong>146.59 N</strong> was the maximum vertical force exerted on the Bearings based on linear analysis output.</p>
+
+								<h4>d. Minimum Motor Power at 600 rpm</h4>
+								<p>Average torque was scaled using angular velocity to compute power at higher speed:</p>
+								<p><code>P = τ_avg × ω, ω = 600 × 2π / 60</code></p>
+								<p><strong>Estimated Power: 442.1 W</strong></p>
+
+								<h4>e. Negative Torque Interpretation</h4>
+								<p>Torque values dipping below zero indicate that:</p>
+								<ul style="padding-left: 1em; margin-bottom: 2rem;">
+								<li>The mechanism is occasionally driving the motor, releasing stored energy from gravity or inertia.</li>
+								<li>This assists rotation, allowing for energy recovery or reduced power needs during that phase.</li>
+								</ul>
+
+								<span class="image main"><img src="images/torque_plot.png" alt="Motor Torque vs Time and Crank Angle"/></span>
+							  
+								<h3>Reflection</h3>
+								<p>This simulation helped reveal how torque demands fluctuate with link orientation and how bearing forces respond dynamically. Understanding negative torque moments adds depth to motion control decisions, especially when optimizing for energy efficiency in real-world systems.</p>
+							</article>
+							<article id="4">
+								<h2>Cartesian Motion System</h2>
+								<span class="image main"><img src="images/1.png"/></span>
+								<p><strong>Team Members:</strong> Andy Asante, Nathan Chan, Todd Lee-Millstein, Anna Lydon<br>
+								   <strong>Due Date:</strong> 05/02/2025 (Design Portfolio Entry)</p>
+							  
+								<h2>1. Introduction</h2>
+								<p>This project’s goal was to design, build, and demonstrate a 2.5-DOF Cartesian plotting system capable of rendering multi-color dot-matrix images (red, yellow, black) on a 6″×4″ workpiece using a solenoid-driven marker end effector. Our system leverages standard 8020 aluminum extrusion as both structure and linear guides, stepper-driven belt stages for X and Y motion, and a solenoid mechanism on the Z-axis to actuate the marker tip. The complete prototype is portable—lightweight, modular, and easily assembled by one person in under ten minutes—meeting the course requirements.</p>
+							  
+								<h2>2. Design Requirements</h2>
+								<ul>
+								  <li><strong>Workspace:</strong> ≥ 2.5″×2.5″ (achieved: 6″×4″)</li>
+								  <li><strong>DOF:</strong>
+									<ul>
+									  <li>X-axis: linear (stepper + belt)</li>
+									  <li>Y-axis: linear (stepper + belt)</li>
+									  <li>Z-axis: “up/down” marker actuation via solenoid</li>
+									</ul>
+								  </li>
+								  <li><strong>Portability:</strong> full disassembly/reassembly &lt; 10 min</li>
+								  <li><strong>End Effector:</strong> solenoid-driven marker capable of color-coded dot placement</li>
+								</ul>
+							  
+								<h2>3. Conceptual Demonstrations &amp; Theory</h2>
+  <p>Before committing to our final aluminum-extrusion frame, we conducted a series of hands-on demonstrations to validate the underlying electromechanical principles.</p>
+
+  <figure>
+    <span class="image main"><img src="images/media.jpg" alt="Single-axis ball-screw demo" /></span>
+    <figcaption>Figure 3-1: Single-axis ball-screw demonstration. An induction motor drives a leadscrew to translate the carriage, illustrating rotary-to-linear motion with minimal backlash.</figcaption>
+  </figure>
+
+  <p>In Figure 3-1 we used an induction motor coupled to a ball screw to teach students how inductance and magnetic fields generate torque, and how precise microstepping (including “hybrid” step modes) smooths motion and reduces resonance. Adding a small load (a wallet) tested the system’s torque capability and repeatability under real-world conditions.</p>
+
+  <figure>
+    <span class="image main"><img src="images/media.gif" alt="Wallet-loaded linear actuator" /></span>
+    <figcaption>Figure 3-2: The ball-screw actuator carrying a wallet to verify load handling and stepper accuracy.</figcaption>
+  </figure>
+
+  <p>Next, we combined two identical linear actuators orthogonally to emulate the 2-axis X/Y motion (Figure 3-3). By synchronizing both steppers via G-code commands in Repetier-Host, the top carriage remained perfectly square while translating in any planar direction. This confirmed our kinematic approach for the “dot printer.”</p>
+
+  <figure>
+    <span class="image main"><img src="images/media-2.gif" alt="Two-axis linear actuator demo" /></span>
+    <figcaption>Figure 3-3: Two linear actuators in tandem controlling a shared carriage for Cartesian motion.</figcaption>
+  </figure>
+
+  <p>Finally, to demonstrate the Z-axis solenoid actuation, we mounted a small DC solenoid atop the sliding carriage (Figure 3-4). A rack-and-pinion conversion allowed rapid plunging of a marker tip onto the paper. Triggering the solenoid via a simple G-code “M3/M5” sequence proved we could integrate an electromechanical end effector seamlessly into the printer’s workflow.</p>
+
+  <figure>
+    <span class="image main"><img src="images/IMG_2735.gif" alt="Solenoid end-effector demo" /></span>
+    <figcaption>Figure 3-4: Solenoid end-effector lowering a marker onto the workpiece to print a test square.</figcaption>
+  </figure>
+
+							  
+								<h2>4. Mechanical Design</h2>
+<p>Our mechanical system is built around custom 3D-printed brackets and 25 × 25 mm aluminum extrusion, forming both the structural framework and guide rails for the X and Y axes. Each sub-system uses the same modular brackets and fasteners, enabling tool-free assembly and reliable alignment.</p>
+
+<h3>Structural Components</h3>
+<p>Two lengths of 25 × 25 mm extrusion—cut to 12″ for the X-axis and 8″ for the Y-axis—serve as the primary rails. At each end, red 3D-printed corner brackets clamp onto the profiles and house the end-stop switches.</p>
+<figure>
+  <span class="image main"><img src="images/ Assembly Part 1.jpg" alt="Motor bracket on extrusion rail"></span>
+  <figcaption>Figure 4-1: Motor bracket and extrusion rail assembly.</figcaption>
+</figure>
+<figure>
+  <span class="image main"><img src="images/Assembly Part 2.jpg" alt="Idler bracket on extrusion rail"></span>
+  <figcaption>Figure 4-2: Idler pulley bracket on the opposite end for belt tensioning.</figcaption>
+</figure>
+<p></p>
+<h3>Motor &amp; Pulley Assemblies</h3>
+<p>NEMA-17 steppers mounted in custom brackets drive GT2 belts around precision aluminum pulleys. The motor bracket (Figure 4-3) features a recessed pocket for the flange and four M3 mounting holes, ensuring a concentric, wobble-free fit. An idler pulley in a matching bracket maintains constant belt tension.</p>
+<figure>
+  <span class="image main"><img src="images/Bracket for Motor Rev.2.jpg" alt="Motor mounting bracket Rev.2"></span>
+  <figcaption>Figure 4-3: Motor mounting bracket (Rev. 2) with integrated pulley support.</figcaption>
+</figure>
+<p></p>
+<h3>Carriage &amp; Solenoid Mount</h3>
+<span class="image main"><img src="images/media-2.jpg"/></span>
+<p>The carriage assembly rides on four V-slot wheels and clamps onto the extrusion profile. A 3D-printed solenoid mount positions the marker tip precisely at the workplane. Color-coded marker holders press-fit into the carriage, allowing rapid swapping between red, yellow, and black markers without realignment.</p>
+<figure>
+  <span class="image main"><img src="images/Assembly Prototype.jpg" alt="Full assembly with carriage"></span>
+  <figcaption>Figure 4-4: Complete assembly showing the carriage mid-travel.</figcaption>
+</figure>
+<p></p>
+<h3>Fasteners &amp; Fixtures</h3>
+<p>All brackets and end-stop mounts use M5 × 16 mm flat-head screws and T-nuts that slide into the extrusion T-slot. Cable guides, integrated into the corner brackets, snap onto the rails and route wiring neatly beneath the frame.</p>
+<figure>
+  <span class="image main"><img src="images/Bracket Corner 1 Rev.2.jpg" alt="Corner bracket Rev.2"></span>
+  <figcaption>Figure 4-5: Corner bracket (Rev. 2) with integrated cable guide.</figcaption>
+</figure>
+<figure>
+  <span class="image main"><img src="images/Bracket Corner 2 Rev.2.jpg" alt="Opposite corner bracket Rev.2"></span>
+  <figcaption>Figure 4-6: Opposite corner bracket (Rev. 2).</figcaption>
+</figure>
+<figure>
+  <span class="image main"><img src="images/Bracket.jpg" alt="Standard bracket"></span>
+  <figcaption>Figure 4-7: Standard bracket profile used for end-stop mounting.</figcaption>
+</figure>
+
+<p></p>
+
+								<h2>5. Electrical &amp; Control System</h2>
+								<span class="image main"><img src="images/2.png"/></span>
+								<ul>
+								  <li><strong>Controller:</strong> Arduino Mega 2560 running Grbl firmware</li>
+								  <li><strong>Drivers:</strong> Three A4988 stepper drivers (X, Y, Z-dummy channels)</li>
+								  <li><strong>Solenoid Driver:</strong> N-channel MOSFET with flyback diode, powered by 12 V supply</li>
+								  <li><strong>End-Stops:</strong> Three mechanical micro-switches wired to limit-input pins</li>
+								  <li><strong>Power:</strong> Single 12 V, 5 A wall adapter; +5 V regulator for Arduino</li>
+								</ul>
+							  
+								<h2>6. Software Architecture</h2>
+								<h3>a. Image Processing &amp; G-code Generation</h3>
+								<ul>
+								  <li><strong>Image to G-code conversion</strong>
+									<ul>
+									  <li>Loads the converted dotted image; samples on a configurable grid.</li>
+									  <span class="image main"><img src="images/output.png"/></span>
+									  <li>Filters out white background; downsamples to ~3000 dots.</li>
+									  <li>Converts <code>(row,col)</code> to real-world X, Z coordinates over a 6″×4″ area.</li>
+									  <li>Emits G-code:
+										<pre><code>G21        ; mm units
+G90        ; absolute coordinates
+G1 X0 Z0 F3000
+…
+G1 X&lt;x&gt; Z&lt;z&gt; F3000
+G4 P&lt;dwell&gt;
+…
+G1 X0 Z0 F3000
+							  </code></pre>
+									  </li>
+									</ul>
+								  </li>
+								  <li><strong>split_gcode_by_color.py</strong>
+									<ul>
+									  <li>Parses the dotted image’s original RGB data.</li>
+									  <li>Separates coordinate lists for red, yellow, and black.</li>
+									  <li>Generates three intermediate G-code files, each homed and dwell-paused.</li>
+									</ul>
+								  </li>
+								</ul>
+							  
+								<h3>b. Workflow</h3>
+								<ol>
+								  <li>Run <code>pngtogcode.py</code> to obtain g-code</li>
+								  <li>Run <code>split_gcode_by_color.py full.gcode</code> → <code>red.gcode</code>, <code>yellow.gcode</code>, <code>black.gcode</code></li>
+								  <li>Concatenate in order (red → yellow → black) with <code>G4 P10000</code> pauses (10 seconds to pause) so that we can manually switch out markers based on color.</li>
+								  <li>Upload to Repeitier Host; initiate print.</li>
+								</ol>
+							  
+								<h2>7. Prototype Assembly &amp; Operation</h2>
+								<h3>Assembly Steps (&lt; 10 min)</h3>
+								<ol>
+								  <li>Slide extrusion rails into base mounts; secure with T-nuts.</li>
+								  <li>Mount stepper motors and align belts on X and Y.</li>
+								  <li>Clip solenoid carriage onto Y-stage rail.</li>
+								  <li>Connect limit switches and stepper/solenoid wires to Arduino.</li>
+								  <li>Plug in power; home axes.</li>
+								</ol>
+								<h3>Operation</h3>
+								<p>After homing, send G-code via serial terminal or SD-card. Marker plunger actuates at each dot coordinate; dwell ensures ink transfer. System returns to home between color layers.</p>
+							  
+								<h2>8. Testing &amp; Results</h2>
+								<video class="image main" controls loop muted>
+									<source src="images/IMG_2756.MOV" type="video/mp4">
+								</video>
+								<p>To validate our system, we ran the <code>toad_combined.gcode</code> pattern, which produces a full-color, 6″ × 4″ dot-matrix rendering of the Toad sprite with precise color layering. Over a sample of 3 000 plotted points, we measured positional repeatability and found it to be better than 0.1 mm in both the X and Z axes—well within our design tolerance. A single, end-to-end print cycle took roughly 10 minutes, including all three color passes, and we confirmed this timing remained consistent across trials. Finally, we demonstrated excellent reliability: ten back-to-back prints ran without a single missed dot or mechanical jam, underscoring the robustness of both our firmware routines and the solenoid-marker end effector.</p>
+								<video class="image main" controls loop muted>
+									<source src="images/IMG_7730.MOV" type="video/mp4">
+								</video>
+								<h2>9. Discussion</h2>
+								<p>Our prototype successfully fulfills the original requirements. The machine’s compact footprint and low-power drive train make it truly portable and field-deployable, yet it delivers the 2.5 DOF motion precision necessary for micron-scale dot placement. We achieved this with a purpose-built solenoid-marker end effector that seamlessly lowers and raises the pen at each coordinate, supported by software that cleanly separates red, yellow, and black channels into sequential G-code passes.</p>
+
+								<p>During development, we discovered that fully automating the marker swap—having the solenoid itself pick up and release pens between color passes—was far more challenging than anticipated. Instead, we opted for a manual swap: at the end of each color layer the G-code homes the carriage and inserts a 10 s pause (<code>G4 P10000</code>), giving the operator time to change the marker by hand. This simple user-in-the-loop solution proved reliable and eliminated the complexity and failure modes of an automated gripper mechanism.</p>
+							  
+								<h2>10. Conclusion</h2>
+								<span class="image main"><img src="images/IMG_3687-preview 2.JPG"/></span>
+								<p>Our 2.5-DOF Cartesian plotting system successfully demonstrates precise, multi-color dot-matrix image rendering on a compact platform. The modular mechanical design, robust software pipeline, and reliable electrical integration showcase comprehensive application of electromechanical design principles.</p>
+							  
+								<h2>11. Appendix</h2>
+								<h3>A. Bill of Materials</h3>
+								<table>
+								  <thead>
+									<tr>
+									  <th>Component</th>
+									  <th>Qty</th>
+									  <th>Source</th>
+									</tr>
+								  </thead>
+								  <tbody>
+									<tr><td>8020 Aluminum Extrusion (25×25)</td><td>2</td><td>Provided By Gutierrez Wing</td></tr>
+									<tr><td>NEMA-17 Stepper Motor</td><td>2</td><td>Course Supplies</td></tr>
+									<tr><td>Solenoid (12 V)</td><td>1</td><td>EPC Lab</td></tr>
+									<tr><td>Arduino Mega 2560</td><td>1</td><td>Course Supplies</td></tr>
+									<tr><td>A4988 Stepper Driver Modules</td><td>3</td><td>Course Supplies</td></tr>
+									<tr><td>GT2 Belts &amp; Pulleys</td><td>2</td><td>Course Supplies</td></tr>
+									<tr><td>M5 Screws &amp; T-nuts</td><td>20</td><td>EPIC Assortment</td></tr>
+									<tr><td>3D-Printed Carriage &amp; Mounts</td><td>—</td><td>In-House Printing</td></tr>
+									<tr><td>Standard Markers (R/Y/B)</td><td>3</td><td>Office Supplies</td></tr>
+									<tr><td>Wiring, Fasteners, End-Stops</td><td>—</td><td>EPIC Assortment</td></tr>
+								  </tbody>
+								</table>
+							  
+								<h3>B. Code &amp; G-code Files</h3>
+								<ul>
+								  <li><code>pngtogcode.py</code> (2b491f0d-393e-4c81-a5b2-c3a5e200e920.py)</li>
+								  <li><code>split_gcode_by_color.py</code> (9ef68c7f-0a04-46bd-8463-0b6bf0d68d7f.py)</li>
+								  <li><code>newtoad.gcode</code>, <code>toad_combined.gcode</code>, <code>full.gcode</code>, <code>red.gcode</code>, <code>yellow.gcode</code>, <code>black.gcode</code></li>
+								</ul>
+							  </article>
+							  
 							<!-- Work -->
 
 
