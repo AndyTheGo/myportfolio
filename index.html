@@ -1,738 +1,940 @@
 <!DOCTYPE HTML>
 <!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Dimension by HTML5 UP
+  html5up.net | @ajlkn
 -->
 <html>
-	<head>
-		<title>Andy Asante's Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+  <head>
+    <title>Andy Asante's Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <style>
+      /* Film Gallery */
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon fa-gem"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Andy Asante</h1>
-								<p>Student. Engineer. Friend</p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#About">About Me</a></li>
-								<li><a href="#projects">Projects</a></li>
-								<li><a href="#Cool">More</a></li>
-								<li><a href="#contact">Contact</a></li>
-								<!--<li><a href="#elements">Elements</a></li>-->
-							</ul>
-						</nav>
-					</header>
+      .film-gallery-grid {
+        column-count: 3;
+        column-gap: 1.25rem;
+        margin-top: 2rem;
+      }
 
-				<!-- Main -->
-					<div id="main">
+      .gallery-item {
+        break-inside: avoid;
+        margin: 0 0 1.25rem 0;
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.45rem;
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.25);
+      }
 
-						<!-- Intro -->
-							<article id="About">
-								<h2 class="major">About Me</h2>
-								<span class="image main"><img src="images/IMG_1103.JPG" alt="" /></span>
-								<p>I am <strong>Andy O. Asante</strong>, a passionate and driven Mechanical Engineering student at <strong>Boston University</strong>, expected to graduate in May 2026. With hands-on experience in engineering innovation, construction management, and software development, I thrive at the intersection of <strong>technology, design, and problem-solving</strong>.</p>
-								<p>Currently, I serve as a <strong>Lab Assistant</strong> at <strong>Boston University’s Engineering Production Innovation Center (EPIC)</strong>, where I assist students in utilizing advanced machinery like <strong>3D printers, laser cutters, and CNC mills</strong> to bring their projects to life. My past experiences include working as a <strong>Construction Intern at Gilbane Building Company</strong>, where I managed project documentation and assisted in securing project deals, as well as a <strong>Coach Intern at Google Code Next</strong>, where I mentored students in coding, app development, and career exploration.</p>
-						
-							</article>
+      .gallery-item a {
+        display: block;
+        border: 0;
+        text-decoration: none;
+        color: inherit;
+      }
 
-						<!-- Work -->
-							<article id="projects">
-								<h2 class="major">Portfolio</h2>
-								<p>Check out my portfolio below, where all of my projects throughout the years is displayed. Enjoy!</p>
-								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<ul class="nav-buttons">
-									<li><a href="#ME360">ME 360</a></li>
-								</ul>
-							</article>
+      .gallery-item a:hover {
+        border-bottom-color: transparent;
+      }
 
-							<article id="ME360">
-								<h2>ME 360</h2>
-								<span class="image main"><img src="images/7F535FD4-1337-40A5-B00B-E112B0B65471.jpeg"/></span>
-								<p>ME 360 is a hands-on, project-based course that bridges fundamental engineering analysis with real-world system design. Students learn to integrate mechanical structures, sensors, actuators, and control systems through the use of Arduino, SolidWorks simulation, and physical prototyping. The course emphasizes motor control, PID tuning, linear motion systems, and dynamic simulation. With a focus on teamwork and iteration, students apply computer-aided engineering tools to design, build, and test electromechanical systems that respond to real constraints. Check it out!
-								</p>
-								<ul class="nav-buttons">
-									<li><a href="#1">Four Bar Mechanism for Automated Trash Disposal</a></li>
-								</ul>
-								<ul class="nav-buttons">
-									<li><a href="#2">Motor Speed Control & Dynamic Beam Transport</a></li>
-								</ul>
-								<ul class="nav-buttons">
-									<li><a href="#3">Four-Bar Linkage Tutorial & Force Analysis</a></li>
-								</ul>
-								<ul class="nav-buttons">
-									<li><a href="#4">Cartesian Motion System</a></li>
-								</ul>
-							</article>
-							<article id="1">
-								<h2>Four Bar Mechanism for Automated Trash Disposal</h2>
-								<h3>Objective</h3>
-								<p>The purpose of this project was to develop a four-bar mechanism that could automate the disposal process of a trash container. The goal was to ensure that when a user deposits trash onto a tray, the mechanism moves it towards an opening at the back of the bin.</p>
+      .gallery-item img {
+        width: 100%;
+        display: block;
+        border-radius: 0.45rem;
+        transition: transform 0.35s ease, filter 0.35s ease;
+      }
 
-								<h3>Context</h3>
-								<p>Four-bar linkages are commonly used for motion control in mechanical systems. This design required precise point tracking to ensure that the tray follows the intended motion path while adhering to spatial constraints. The pivot points were required to be positioned along the sides of the trash can without interfering with the bin's body.</p>
+      .gallery-item:hover img {
+        transform: scale(1.035);
+        filter: brightness(0.78);
+      }
 
-								<h3>Design Process</h3>
-								<h4>1. Initial Modeling in Math Illustrations</h4>
-								<p>The first step was to define the linkage geometry and identify potential pivot points. A set of perpendicular bisectors was drawn between initial and intermediate points to determine the optimal pivot locations. The challenge arose when one pivot extended outside the allowable region, requiring a redesign.</p>
+      .gallery-item figcaption {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 0.8rem 1rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.14rem;
+        text-transform: uppercase;
+        color: #ffffff;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.72),
+          rgba(0, 0, 0, 0)
+        );
+        opacity: 0;
+        transform: translateY(0.5rem);
+        transition: opacity 0.35s ease, transform 0.35s ease;
+      }
 
-								<h4>2. Refining Pivot Locations</h4>
-								<p>Instead of placing pivots at the endpoints of the tray, they were moved closer together, allowing for a more compact and feasible mechanism. By ensuring collinearity at a specific point in the motion cycle, the sum of two links equaled the sum of the other two, maintaining smooth motion.</p>
-								<span class="image main"><img src="images/mathillustrations.png" alt=""></span>
+      .gallery-item:hover figcaption {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-								<h4>3. Transition to SolidWorks</h4>
-								<p>The final design was transferred into SolidWorks for precise modeling. The origin was set at the bottom-left corner of the bin to ensure accurate link placement. The linkage dimensions were extracted directly from the Math Illustrations model, with final link lengths and pivot coordinates defining the structure.</p>
+      /* Individual Photo Pages */
 
-								<h4>4. Error Adjustments</h4>
-								<p>Minor inaccuracies were introduced due to coordinate rounding, leading to slight deviations in SolidWorks. To accommodate this, a small slot was added at one of the tray’s pivot points, allowing slight movement flexibility without compromising structural integrity.</p>
+      .photo-page .image.main {
+        margin-bottom: 1.5rem;
+      }
 
-								<h3>Motion Study & Animation</h3>
-								<p>The driving link was selected on the right side of the mechanism, as shown in the video simulation. A motion analysis determined that the necessary rotation angle for the driving link was <strong>206 degrees</strong>. The movement was simulated using an oscillating motor set to travel <strong>206 degrees back and forth at a frequency of 0.2 Hz</strong>.</p>
+      .photo-page .image.main img {
+        max-height: 78vh;
+        width: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        display: block;
+        object-fit: contain;
+        border-radius: 0.35rem;
+      }
 
-								<h3>Results & Final Design Demonstration</h3>
-								<p>The final mechanism successfully moves the trash tray in the desired path while maintaining constraints.</p>
-								<video class="image main" controls loop>
-									<source src="images/newAssem1.mp4" type="video/mp4">
-								</video>
-							</article>
+      .photo-page p {
+        max-width: 48rem;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        line-height: 1.75;
+      }
 
-							<article id="2">
-								<h2>Motor Speed Control & Dynamic Beam Transport</h2>
-								<video class="image main" controls loop>
-									<source src="images/ME360Assignment2Simulation.mp4" type="video/mp4">
-								</video>
-								<h3>Objective</h3>
-								<p>This project aimed to design and prototype a system capable of transporting a 1-foot vertical aluminum beam across a 10-foot distance and back, without the beam toppling. The key goal was to minimize travel time while maintaining dynamic stability through motor speed control.</p>
-							
-								<h3>Context</h3>
-								<p>This assignment introduced multibody dynamic simulation using SolidWorks and required the implementation of a real-world control strategy using an Arduino and encoder feedback. The project was part of ME360: Electromechanical Design and involved both simulation and hands-on prototyping.</p>
-							
-								<h3>Design Process</h3>
-								
-								<h4>1. Theoretical Modeling</h4>
-								<p>The initial calculations determined the necessary acceleration and wheel dimensions to achieve the fastest stable transport. The maximum speed was found using energy-based kinematics, and this value was used to determine optimal wheel size for the gear motor setup.</p>
-								<span class="image main"><img src="images/theoretical_calc.jpg" alt="Theoretical Calculations"/></span>
-							
-								<h4>2. RPM Calculation via Arduino</h4>
-								<p>The encoder speed was sampled over short intervals using an Arduino-based function, converting angular displacement to RPM. This allowed the platform to modulate speed in real-time.</p>
-								<span class="image main">
-									<pre>
-										<code>
-										double getSpeed(){
-											long int count0, count1;
-											double theta0, theta1;
-											double w;
-										
-											count0 = count;
-											theta0 = count0 * 1.5; // Degrees
-											delay(100); // One tenth of a second
-											count1 = count;
-											theta1 = count1 * 1.5;
-										
-											w = (theta1 - theta0) / (0.1); // deg/s
-											return (w / 360.0 * 60.0); // RPM
-										}
-									</code></pre>
-								</span>
-								<h4>3. Simulation Results</h4>
-								<p>The simulation showed that a maximum velocity of 5.18 ft/s would be required for optimal performance. This value guided the design of the wheel size and motor control strategy.</p>
-							
-								<h4>4. Velocity Profile from Experimental Data</h4>
-								<p>The final prototype's velocity profile was recorded and matched the expected triangular acceleration/deceleration pattern. However, real-world constraints affected performance.</p>
-								<span class="image main"><img src="images/velocity_graph.png" alt="Velocity Time Graph" /></span>
-								<span class="image main"><img src="images/velocity_table.png" alt="Velocity Table" /></span>
-							
-								<h3>Results & Final Design Demonstration</h3>
-								<p>The physical prototype successfully transported the beam without it falling. However, due to surface roughness and real-world inconsistencies like motor velocity changes, the platform completed the trip in <strong>11.50 seconds</strong>, which is <strong>3.78 seconds slower</strong> than the theoretical optimum.</p>
-							
-								<video class="image main" controls loop>
-									<source src="images/IMG_1841.mov" type="video/mp4">
-								</video>
-								<span class="image main"><img src="images/7F535FD4-1337-40A5-B00B-E112B0B65471.jpeg" alt="team photo"/></span>
-								<h3>Improvements & Reflection</h3>
-								<p>Two main improvements were identified:
-									<ul>
-										<li><strong>O-Ring Integration:</strong> Designing wheels with built-in O-ring slots would enhance traction and dampen impacts from terrain irregularities.</li>
-										<li><strong>Better Wheel Fitment:</strong> Replacing tolerance-fit wheels with press-fit or fixed designs would ensure straighter motion and reduce slippage off the axle.</li>
-									</ul>
-								</p>
-							</article>
+      .photo-page .actions {
+        justify-content: center;
+      }
 
-							<article id="3">
-								<h2>Four-Bar Linkage Tutorial & Force Analysis</h2>
-							  
-								<h3>Objective</h3>
-								<p>The goal of this study was to simulate the dynamics of a four-bar linkage mechanism and analyze the motor torque, bearing forces, and power requirements. The mechanism was actuated at 600 rpm, and results were extracted to identify peak performance values and interpret mechanical behavior such as torque direction changes.</p>
-							  
-								<h3>Design Context</h3>
-								<p>The mechanism consists of a crank, extension link, rocker, and fixed bearings, forming a classic four-bar setup. Once modeled and constrained in SolidWorks, motion analysis was conducted by driving the crank through a rotary motor while logging motor torque and bearing forces across two full cycles (6 seconds at 20 rpm). The motor was later scaled to simulate 600 rpm for power analysis.</p>
-							  
-								<span class="image main"><img src="images/Assem2 (importedmaterial)-1 [MConverter.eu].png" alt="SolidWorks Four-Bar Setup"/></span>
-							  
-								<h3>Motion Study</h3>
-								<p>A rotary motor was applied to the crank, and gravity was introduced to add dynamic realism. Results were exported and processed using Python and Excel. Below is the animation of the simulated mechanism:</p>
-							  
-								<video class="image main" controls loop muted>
-								  <source src="images/Assem2 (importedmaterial).mp4" type="video/mp4">
-								</video>
-							  
-								<h3>Results</h3>
+      @media screen and (max-width: 980px) {
+        .film-gallery-grid {
+          column-count: 2;
+        }
+      }
 
-								<h4>a. Maximum Motor Torque</h4>
-								<p>Using the exported torque data from SolidWorks, the peak torque reached was:</p>
-								<ul style="padding-left: 1em; margin-bottom: 2rem;">
-								<li><strong>23,071 N·mm (23.07 N·m)</strong></li>
-								<li>This peak occurred around <strong>2.28 seconds</strong>, corresponding to a crank angle of <strong>273.6°</strong>.</li>
-								</ul>
+      @media screen and (max-width: 600px) {
+        .film-gallery-grid {
+          column-count: 1;
+        }
+      }
+    </style>
+  </head>
 
-								<h4>b. Crank Angle at Max Torque</h4>
-								<p>The crank required <strong>273.6° of rotation</strong> to reach the torque maximum in each cycle.</p>
+  <body class="is-preload">
 
-								<h4>c. Maximum Vertical Force on Bearings</h4>
-								<p><strong>146.59 N</strong> was the maximum vertical force exerted on the Bearings based on linear analysis output.</p>
+    <!-- Wrapper -->
+    <div id="wrapper">
 
-								<h4>d. Minimum Motor Power at 600 rpm</h4>
-								<p>Average torque was scaled using angular velocity to compute power at higher speed:</p>
-								<p><code>P = τ_avg × ω, ω = 600 × 2π / 60</code></p>
-								<p><strong>Estimated Power: 442.1 W</strong></p>
+      <!-- Header -->
+      <header id="header">
+        <div class="logo">
+          <span class="icon fa-gem"></span>
+        </div>
 
-								<h4>e. Negative Torque Interpretation</h4>
-								<p>Torque values dipping below zero indicate that:</p>
-								<ul style="padding-left: 1em; margin-bottom: 2rem;">
-								<li>The mechanism is occasionally driving the motor, releasing stored energy from gravity or inertia.</li>
-								<li>This assists rotation, allowing for energy recovery or reduced power needs during that phase.</li>
-								</ul>
+        <div class="content">
+          <div class="inner">
+            <h1>Andy Asante</h1>
+            <p>Mechanical Engineer | Graphic Designer | Friend</p>
+          </div>
+        </div>
 
-								<span class="image main"><img src="images/torque_plot.png" alt="Motor Torque vs Time and Crank Angle"/></span>
-							  
-								<h3>Reflection</h3>
-								<p>This simulation helped reveal how torque demands fluctuate with link orientation and how bearing forces respond dynamically. Understanding negative torque moments adds depth to motion control decisions, especially when optimizing for energy efficiency in real-world systems.</p>
-							</article>
-							<article id="4">
-								<h2>Cartesian Motion System</h2>
-								<span class="image main"><img src="images/1.png"/></span>
-								<p><strong>Team Members:</strong> Andy Asante, Nathan Chan, Todd Lee-Millstein, Anna Lydon<br>
-								   <strong>Due Date:</strong> 05/02/2025 (Design Portfolio Entry)</p>
-							  
-								<h2>1. Introduction</h2>
-								<p>This project’s goal was to design, build, and demonstrate a 2.5-DOF Cartesian plotting system capable of rendering multi-color dot-matrix images (red, yellow, black) on a 6″×4″ workpiece using a solenoid-driven marker end effector. Our system leverages standard 8020 aluminum extrusion as both structure and linear guides, stepper-driven belt stages for X and Y motion, and a solenoid mechanism on the Z-axis to actuate the marker tip. The complete prototype is portable—lightweight, modular, and easily assembled by one person in under ten minutes—meeting the course requirements.</p>
-							  
-								<h2>2. Design Requirements</h2>
-								<ul>
-								  <li><strong>Workspace:</strong> ≥ 2.5″×2.5″ (achieved: 6″×4″)</li>
-								  <li><strong>DOF:</strong>
-									<ul>
-									  <li>X-axis: linear (stepper + belt)</li>
-									  <li>Y-axis: linear (stepper + belt)</li>
-									  <li>Z-axis: “up/down” marker actuation via solenoid</li>
-									</ul>
-								  </li>
-								  <li><strong>Portability:</strong> full disassembly/reassembly &lt; 10 min</li>
-								  <li><strong>End Effector:</strong> solenoid-driven marker capable of color-coded dot placement</li>
-								</ul>
-							  
-								<h2>3. Conceptual Demonstrations &amp; Theory</h2>
-  <p>Before committing to our final aluminum-extrusion frame, we conducted a series of hands-on demonstrations to validate the underlying electromechanical principles.</p>
+        <nav>
+          <ul>
+            <li><a href="#About">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#personal">Personal</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
 
-  <figure>
-    <span class="image main"><img src="images/media.jpg" alt="Single-axis ball-screw demo" /></span>
-    <figcaption>Figure 3-1: Single-axis ball-screw demonstration. An induction motor drives a leadscrew to translate the carriage, illustrating rotary-to-linear motion with minimal backlash.</figcaption>
-  </figure>
+      <!-- Main -->
+      <div id="main">
 
-  <p>In Figure 3-1 we used an induction motor coupled to a ball screw to teach students how inductance and magnetic fields generate torque, and how precise microstepping (including “hybrid” step modes) smooths motion and reduces resonance. Adding a small load (a wallet) tested the system’s torque capability and repeatability under real-world conditions.</p>
+        <!-- About Me -->
+        <article id="About">
+          <h2 class="major">About Me</h2>
 
-  <figure>
-    <span class="image main"><img src="images/media.gif" alt="Wallet-loaded linear actuator" /></span>
-    <figcaption>Figure 3-2: The ball-screw actuator carrying a wallet to verify load handling and stepper accuracy.</figcaption>
-  </figure>
+          <span class="image main">
+            <img src="images/IMG_1103.JPG" alt="Andy Asante" />
+          </span>
 
-  <p>Next, we combined two identical linear actuators orthogonally to emulate the 2-axis X/Y motion (Figure 3-3). By synchronizing both steppers via G-code commands in Repetier-Host, the top carriage remained perfectly square while translating in any planar direction. This confirmed our kinematic approach for the “dot printer.”</p>
+          <p>
+            I am <strong>Andy O. Asante</strong>, a Mechanical Engineering student at
+            <strong>Boston University</strong>, expected to graduate in May 2026. My interests
+            center around manufacturing, electromechanical design, construction systems,
+            controls, and hands-on product development.
+          </p>
 
-  <figure>
-    <span class="image main"><img src="images/media-2.gif" alt="Two-axis linear actuator demo" /></span>
-    <figcaption>Figure 3-3: Two linear actuators in tandem controlling a shared carriage for Cartesian motion.</figcaption>
-  </figure>
+          <p>
+            I currently work as a <strong>Lab Assistant</strong> at Boston University’s
+            Engineering Production Innovation Center, where I help students operate advanced
+            fabrication equipment including 3D printers, laser cutters, and CNC mills. This role
+            has strengthened my understanding of manufacturing workflows, safety practices,
+            prototyping, and the importance of translating design ideas into physical systems.
+          </p>
 
-  <p>Finally, to demonstrate the Z-axis solenoid actuation, we mounted a small DC solenoid atop the sliding carriage (Figure 3-4). A rack-and-pinion conversion allowed rapid plunging of a marker tip onto the paper. Triggering the solenoid via a simple G-code “M3/M5” sequence proved we could integrate an electromechanical end effector seamlessly into the printer’s workflow.</p>
+          <p>
+            My previous experience includes working as a <strong>Downstate Contractor Oversight
+            Intern at National Grid</strong>, where I tracked field reports, reviewed operator
+            qualifications, supported documentation workflows, and observed utility infrastructure
+            operations across active job sites. I also worked as a <strong>Construction Intern at
+            Gilbane Building Company</strong>, managing project documentation, RFIs, submittals,
+            and coordination with project managers.
+          </p>
 
-  <figure>
-    <span class="image main"><img src="images/IMG_2735.gif" alt="Solenoid end-effector demo" /></span>
-    <figcaption>Figure 3-4: Solenoid end-effector lowering a marker onto the workpiece to print a test square.</figcaption>
-  </figure>
+          <p>
+            Across my work, I enjoy projects that combine mechanical design, fabrication, software,
+            and real-world testing. Whether I am building a motion system, working with controls,
+            supporting fabrication in a lab, or documenting a construction workflow, I am drawn to
+            the process of turning complex problems into practical engineered solutions.
+          </p>
+        </article>
 
-							  
-								<h2>4. Mechanical Design</h2>
-<p>Our mechanical system is built around custom 3D-printed brackets and 25 × 25 mm aluminum extrusion, forming both the structural framework and guide rails for the X and Y axes. Each sub-system uses the same modular brackets and fasteners, enabling tool-free assembly and reliable alignment.</p>
+        <!-- Projects -->
+        <article id="projects">
+          <h2 class="major">Portfolio</h2>
 
-<h3>Structural Components</h3>
-<p>Two lengths of 25 × 25 mm extrusion—cut to 12″ for the X-axis and 8″ for the Y-axis—serve as the primary rails. At each end, red 3D-printed corner brackets clamp onto the profiles and house the end-stop switches.</p>
-<figure>
-  <span class="image main"><img src="images/ Assembly Part 1.jpg" alt="Motor bracket on extrusion rail"></span>
-  <figcaption>Figure 4-1: Motor bracket and extrusion rail assembly.</figcaption>
-</figure>
-<figure>
-  <span class="image main"><img src="images/Assembly Part 2.jpg" alt="Idler bracket on extrusion rail"></span>
-  <figcaption>Figure 4-2: Idler pulley bracket on the opposite end for belt tensioning.</figcaption>
-</figure>
-<p></p>
-<h3>Motor &amp; Pulley Assemblies</h3>
-<p>NEMA-17 steppers mounted in custom brackets drive GT2 belts around precision aluminum pulleys. The motor bracket (Figure 4-3) features a recessed pocket for the flange and four M3 mounting holes, ensuring a concentric, wobble-free fit. An idler pulley in a matching bracket maintains constant belt tension.</p>
-<figure>
-  <span class="image main"><img src="images/Bracket for Motor Rev.2.jpg" alt="Motor mounting bracket Rev.2"></span>
-  <figcaption>Figure 4-3: Motor mounting bracket (Rev. 2) with integrated pulley support.</figcaption>
-</figure>
-<p></p>
-<h3>Carriage &amp; Solenoid Mount</h3>
-<span class="image main"><img src="images/media-2.jpg"/></span>
-<p>The carriage assembly rides on four V-slot wheels and clamps onto the extrusion profile. A 3D-printed solenoid mount positions the marker tip precisely at the workplane. Color-coded marker holders press-fit into the carriage, allowing rapid swapping between red, yellow, and black markers without realignment.</p>
-<figure>
-  <span class="image main"><img src="images/Assembly Prototype.jpg" alt="Full assembly with carriage"></span>
-  <figcaption>Figure 4-4: Complete assembly showing the carriage mid-travel.</figcaption>
-</figure>
-<p></p>
-<h3>Fasteners &amp; Fixtures</h3>
-<p>All brackets and end-stop mounts use M5 × 16 mm flat-head screws and T-nuts that slide into the extrusion T-slot. Cable guides, integrated into the corner brackets, snap onto the rails and route wiring neatly beneath the frame.</p>
-<figure>
-  <span class="image main"><img src="images/Bracket Corner 1 Rev.2.jpg" alt="Corner bracket Rev.2"></span>
-  <figcaption>Figure 4-5: Corner bracket (Rev. 2) with integrated cable guide.</figcaption>
-</figure>
-<figure>
-  <span class="image main"><img src="images/Bracket Corner 2 Rev.2.jpg" alt="Opposite corner bracket Rev.2"></span>
-  <figcaption>Figure 4-6: Opposite corner bracket (Rev. 2).</figcaption>
-</figure>
-<figure>
-  <span class="image main"><img src="images/Bracket.jpg" alt="Standard bracket"></span>
-  <figcaption>Figure 4-7: Standard bracket profile used for end-stop mounting.</figcaption>
-</figure>
+          <p>
+            This portfolio highlights engineering projects involving mechanical design,
+            fabrication, controls, software, testing, and system integration.
+          </p>
 
-<p></p>
+          <span class="image main">
+            <img src="images/pic02.jpg" alt="Portfolio project cover" />
+          </span>
 
-								<h2>5. Electrical &amp; Control System</h2>
-								<span class="image main"><img src="images/2.png"/></span>
-								<ul>
-								  <li><strong>Controller:</strong> Arduino Mega 2560 running Grbl firmware</li>
-								  <li><strong>Drivers:</strong> Three A4988 stepper drivers (X, Y, Z-dummy channels)</li>
-								  <li><strong>Solenoid Driver:</strong> N-channel MOSFET with flyback diode, powered by 12 V supply</li>
-								  <li><strong>End-Stops:</strong> Three mechanical micro-switches wired to limit-input pins</li>
-								  <li><strong>Power:</strong> Single 12 V, 5 A wall adapter; +5 V regulator for Arduino</li>
-								</ul>
-							  
-								<h2>6. Software Architecture</h2>
-								<h3>a. Image Processing &amp; G-code Generation</h3>
-								<ul>
-								  <li><strong>Image to G-code conversion</strong>
-									<ul>
-									  <li>Loads the converted dotted image; samples on a configurable grid.</li>
-									  <span class="image main"><img src="images/output.png"/></span>
-									  <li>Filters out white background; downsamples to ~3000 dots.</li>
-									  <li>Converts <code>(row,col)</code> to real-world X, Z coordinates over a 6″×4″ area.</li>
-									  <li>Emits G-code:
-										<pre><code>G21        ; mm units
-G90        ; absolute coordinates
-G1 X0 Z0 F3000
-…
-G1 X&lt;x&gt; Z&lt;z&gt; F3000
-G4 P&lt;dwell&gt;
-…
-G1 X0 Z0 F3000
-							  </code></pre>
-									  </li>
-									</ul>
-								  </li>
-								  <li><strong>split_gcode_by_color.py</strong>
-									<ul>
-									  <li>Parses the dotted image’s original RGB data.</li>
-									  <li>Separates coordinate lists for red, yellow, and black.</li>
-									  <li>Generates three intermediate G-code files, each homed and dwell-paused.</li>
-									</ul>
-								  </li>
-								</ul>
-							  
-								<h3>b. Workflow</h3>
-								<ol>
-								  <li>Run <code>pngtogcode.py</code> to obtain g-code</li>
-								  <li>Run <code>split_gcode_by_color.py full.gcode</code> → <code>red.gcode</code>, <code>yellow.gcode</code>, <code>black.gcode</code></li>
-								  <li>Concatenate in order (red → yellow → black) with <code>G4 P10000</code> pauses (10 seconds to pause) so that we can manually switch out markers based on color.</li>
-								  <li>Upload to Repeitier Host; initiate print.</li>
-								</ol>
-							  
-								<h2>7. Prototype Assembly &amp; Operation</h2>
-								<h3>Assembly Steps (&lt; 10 min)</h3>
-								<ol>
-								  <li>Slide extrusion rails into base mounts; secure with T-nuts.</li>
-								  <li>Mount stepper motors and align belts on X and Y.</li>
-								  <li>Clip solenoid carriage onto Y-stage rail.</li>
-								  <li>Connect limit switches and stepper/solenoid wires to Arduino.</li>
-								  <li>Plug in power; home axes.</li>
-								</ol>
-								<h3>Operation</h3>
-								<p>After homing, send G-code via serial terminal or SD-card. Marker plunger actuates at each dot coordinate; dwell ensures ink transfer. System returns to home between color layers.</p>
-							  
-								<h2>8. Testing &amp; Results</h2>
-								<video class="image main" controls loop muted>
-									<source src="images/IMG_2756.MOV" type="video/mp4">
-								</video>
-								<p>To validate our system, we ran the <code>toad_combined.gcode</code> pattern, which produces a full-color, 6″ × 4″ dot-matrix rendering of the Toad sprite with precise color layering. Over a sample of 3 000 plotted points, we measured positional repeatability and found it to be better than 0.1 mm in both the X and Z axes—well within our design tolerance. A single, end-to-end print cycle took roughly 10 minutes, including all three color passes, and we confirmed this timing remained consistent across trials. Finally, we demonstrated excellent reliability: ten back-to-back prints ran without a single missed dot or mechanical jam, underscoring the robustness of both our firmware routines and the solenoid-marker end effector.</p>
-								<video class="image main" controls loop muted>
-									<source src="images/IMG_7730.MOV" type="video/mp4">
-								</video>
-								<h2>9. Discussion</h2>
-								<p>Our prototype successfully fulfills the original requirements. The machine’s compact footprint and low-power drive train make it truly portable and field-deployable, yet it delivers the 2.5 DOF motion precision necessary for micron-scale dot placement. We achieved this with a purpose-built solenoid-marker end effector that seamlessly lowers and raises the pen at each coordinate, supported by software that cleanly separates red, yellow, and black channels into sequential G-code passes.</p>
+          <ul class="nav-buttons">
+            <li><a href="#ME360">ME 360 Electromechanical Design</a></li>
+          </ul>
 
-								<p>During development, we discovered that fully automating the marker swap—having the solenoid itself pick up and release pens between color passes—was far more challenging than anticipated. Instead, we opted for a manual swap: at the end of each color layer the G-code homes the carriage and inserts a 10 s pause (<code>G4 P10000</code>), giving the operator time to change the marker by hand. This simple user-in-the-loop solution proved reliable and eliminated the complexity and failure modes of an automated gripper mechanism.</p>
-							  
-								<h2>10. Conclusion</h2>
-								<span class="image main"><img src="images/IMG_3687-preview 2.JPG"/></span>
-								<p>Our 2.5-DOF Cartesian plotting system successfully demonstrates precise, multi-color dot-matrix image rendering on a compact platform. The modular mechanical design, robust software pipeline, and reliable electrical integration showcase comprehensive application of electromechanical design principles.</p>
-							  
-								<h2>11. Appendix</h2>
-								<h3>A. Bill of Materials</h3>
-								<table>
-								  <thead>
-									<tr>
-									  <th>Component</th>
-									  <th>Qty</th>
-									  <th>Source</th>
-									</tr>
-								  </thead>
-								  <tbody>
-									<tr><td>8020 Aluminum Extrusion (25×25)</td><td>2</td><td>Provided By Gutierrez Wing</td></tr>
-									<tr><td>NEMA-17 Stepper Motor</td><td>2</td><td>Course Supplies</td></tr>
-									<tr><td>Solenoid (12 V)</td><td>1</td><td>EPC Lab</td></tr>
-									<tr><td>Arduino Mega 2560</td><td>1</td><td>Course Supplies</td></tr>
-									<tr><td>A4988 Stepper Driver Modules</td><td>3</td><td>Course Supplies</td></tr>
-									<tr><td>GT2 Belts &amp; Pulleys</td><td>2</td><td>Course Supplies</td></tr>
-									<tr><td>M5 Screws &amp; T-nuts</td><td>20</td><td>EPIC Assortment</td></tr>
-									<tr><td>3D-Printed Carriage &amp; Mounts</td><td>—</td><td>In-House Printing</td></tr>
-									<tr><td>Standard Markers (R/Y/B)</td><td>3</td><td>Office Supplies</td></tr>
-									<tr><td>Wiring, Fasteners, End-Stops</td><td>—</td><td>EPIC Assortment</td></tr>
-								  </tbody>
-								</table>
-							  
-								<h3>B. Code &amp; G-code Files</h3>
-								<ul>
-								  <li><code>pngtogcode.py</code> (2b491f0d-393e-4c81-a5b2-c3a5e200e920.py)</li>
-								  <li><code>split_gcode_by_color.py</code> (9ef68c7f-0a04-46bd-8463-0b6bf0d68d7f.py)</li>
-								  <li><code>newtoad.gcode</code>, <code>toad_combined.gcode</code>, <code>full.gcode</code>, <code>red.gcode</code>, <code>yellow.gcode</code>, <code>black.gcode</code></li>
-								</ul>
-							  </article>
-							  
-							<!-- Work -->
+          <ul class="nav-buttons">
+            <li><a href="#ME461">ME 461 Autonomous Sailboat</a></li>
+          </ul>
+        </article>
 
+        <!-- ME 360 -->
+        <article id="ME360">
+          <h2>ME 360</h2>
 
-						<!-- About -->
-							<article id="about">
-								<h2 class="major">About</h2>
-								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
-							</article>
+          <span class="image main">
+            <img src="images/7F535FD4-1337-40A5-B00B-E112B0B65471.jpeg" alt="ME 360 team photo" />
+          </span>
 
-						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
-								<ul class="icons">
-									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</article>
+          <p>
+            ME 360 is a hands-on, project-based course focused on electromechanical design.
+            The course combines mechanical structures, sensors, actuators, Arduino control,
+            SolidWorks simulation, physical prototyping, and dynamic system analysis.
+          </p>
 
-						<!-- Elements -->
-							<article id="elements">
-								<h2 class="major">Elements</h2>
+          <ul class="nav-buttons">
+            <li><a href="#project-fourbar-trash">Four-Bar Mechanism for Automated Trash Disposal</a></li>
+          </ul>
 
-								<section>
-									<h3 class="major">Text</h3>
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<h6>Heading Level 6</h6>
-									<hr />
-									<h4>Blockquote</h4>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h4>Preformatted</h4>
-									<pre><code>i = 0;
+          <ul class="nav-buttons">
+            <li><a href="#project-beam-transport">Motor Speed Control & Dynamic Beam Transport</a></li>
+          </ul>
 
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
+          <ul class="nav-buttons">
+            <li><a href="#project-fourbar-analysis">Four-Bar Linkage Tutorial & Force Analysis</a></li>
+          </ul>
 
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-								</section>
+          <ul class="nav-buttons">
+            <li><a href="#project-cartesian">Cartesian Motion System</a></li>
+          </ul>
+        </article>
 
-								<section>
-									<h3 class="major">Lists</h3>
+        <!-- ME360 Project 1 -->
+        <article id="project-fourbar-trash">
+          <h2>Four-Bar Mechanism for Automated Trash Disposal</h2>
 
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
+          <h3>Objective</h3>
+          <p>
+            This project focused on developing a four-bar mechanism that could automate the
+            movement of a trash tray toward the back opening of a bin after a user deposits trash.
+          </p>
 
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
+          <h3>Design Process</h3>
+          <p>
+            The mechanism was first modeled geometrically to determine pivot locations and link
+            lengths. After evaluating constraints, the linkage geometry was refined so that the
+            motion path stayed compact and feasible within the trash bin structure.
+          </p>
 
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
+          <span class="image main">
+            <img src="images/mathillustrations.png" alt="Four-bar linkage math illustration" />
+          </span>
 
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</section>
+          <h3>Motion Study</h3>
+          <p>
+            The final geometry was transferred into SolidWorks, where an oscillating rotary motor
+            was used to simulate the driving link. The final motion required approximately
+            <strong>206 degrees</strong> of rotation.
+          </p>
 
-								<section>
-									<h3 class="major">Table</h3>
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
+          <video class="image main" controls loop>
+            <source src="images/newAssem1.mp4" type="video/mp4" />
+          </video>
+        </article>
 
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-								</section>
+        <!-- ME360 Project 2 -->
+        <article id="project-beam-transport">
+          <h2>Motor Speed Control & Dynamic Beam Transport</h2>
 
-								<section>
-									<h3 class="major">Buttons</h3>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</section>
+          <video class="image main" controls loop>
+            <source src="images/ME360Assignment2Simulation.mp4" type="video/mp4" />
+          </video>
 
-								<section>
-									<h3 class="major">Form</h3>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</section>
+          <h3>Objective</h3>
+          <p>
+            This project involved designing a system capable of transporting a vertical aluminum
+            beam across a 10-foot distance and back without toppling. The goal was to minimize
+            travel time while maintaining stability.
+          </p>
 
-							</article>
+          <h3>Control Strategy</h3>
+          <p>
+            An Arduino and encoder feedback were used to measure motor speed and adjust motion.
+            The system relied on controlled acceleration and deceleration to prevent the beam from
+            tipping during transport.
+          </p>
 
-					</div>
+          <span class="image main">
+            <img src="images/velocity_graph.png" alt="Velocity graph" />
+          </span>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-					</footer>
+          <h3>Result</h3>
+          <p>
+            The final prototype completed the motion without the beam falling. The real-world run
+            took <strong>11.50 seconds</strong>, which was slower than the theoretical optimum due
+            to surface roughness, motor variation, and traction limitations.
+          </p>
 
+          <video class="image main" controls loop>
+            <source src="images/IMG_1841.mov" type="video/mp4" />
+          </video>
+        </article>
+
+        <!-- ME360 Project 3 -->
+        <article id="project-fourbar-analysis">
+          <h2>Four-Bar Linkage Tutorial & Force Analysis</h2>
+
+          <h3>Objective</h3>
+          <p>
+            This project simulated a four-bar linkage mechanism to analyze motor torque, bearing
+            forces, and power requirements. The mechanism was modeled in SolidWorks and driven
+            through a rotary motor for dynamic analysis.
+          </p>
+
+          <span class="image main">
+            <img src="images/Assem2 (importedmaterial)-1 [MConverter.eu].png" alt="SolidWorks four-bar linkage setup" />
+          </span>
+
+          <video class="image main" controls loop muted>
+            <source src="images/Assem2 (importedmaterial).mp4" type="video/mp4" />
+          </video>
+
+          <h3>Results</h3>
+          <p>
+            The maximum motor torque was approximately <strong>23.07 N·m</strong>, occurring
+            around a crank angle of <strong>273.6 degrees</strong>. The estimated minimum power
+            requirement at 600 rpm was approximately <strong>442.1 W</strong>.
+          </p>
+
+          <span class="image main">
+            <img src="images/torque_plot.png" alt="Motor torque plot" />
+          </span>
+        </article>
+
+        <!-- ME360 Project 4 -->
+        <article id="project-cartesian">
+          <h2>Cartesian Motion System</h2>
+
+          <span class="image main">
+            <img src="images/1.png" alt="Cartesian motion system" />
+          </span>
+
+          <p>
+            This project involved designing, building, and demonstrating a 2.5-DOF Cartesian
+            plotting system capable of rendering multi-color dot-matrix images on a 6 inch by
+            4 inch workpiece using a solenoid-driven marker end effector.
+          </p>
+
+          <h3>System Design</h3>
+          <p>
+            The system used aluminum extrusion rails, stepper-driven belt stages, 3D-printed
+            brackets, a solenoid marker mechanism, and an Arduino-based control system. Python was
+            used to convert images into G-code instructions for dot placement.
+          </p>
+
+          <span class="image main">
+            <img src="images/output.png" alt="Processed dot image" />
+          </span>
+
+          <h3>Testing</h3>
+          <p>
+            The final prototype successfully plotted a multi-color Toad sprite using sequential
+            red, yellow, and black marker passes. The system demonstrated sub-millimeter
+            repeatability and completed full print cycles in approximately 10 minutes.
+          </p>
+
+          <video class="image main" controls loop muted>
+            <source src="images/IMG_2756.MOV" type="video/mp4" />
+          </video>
+        </article>
+
+        <!-- ME461 Autonomous Sailboat -->
+        <article id="ME461">
+          <h2>ME 461 Autonomous Sailboat</h2>
+
+          <span class="image main">
+            <img src="images/sailboat_contact.jpg" alt="Autonomous sailboat prototype on the Charles River" />
+          </span>
+
+          <p>
+            The ME 461 Autonomous Sailboat project focused on designing, fabricating, and testing
+            a 6-foot wind-powered autonomous sailboat capable of navigating a freshwater course
+            using GPS waypoint tracking. The project required full-system integration across
+            mechanical design, fabrication, controls, electronics, waterproofing, and field
+            testing.
+          </p>
+
+          <h3>Project Objective</h3>
+          <p>
+            The goal was to build a sailboat capable of autonomous navigation over a 250–500 meter
+            freshwater course while relying primarily on wind propulsion. Key targets included
+            GPS waypoint navigation, manual override capability, watertight hull performance,
+            stable operation under load, and compatibility with ArduPilot and Mission Planner.
+          </p>
+
+          <h3>System Overview</h3>
+
+          <span class="image main">
+            <img src="images/subassemblies.png" alt="Autonomous sailboat subsystem integration diagram" />
+          </span>
+
+          <p>
+            The autonomous sailboat was developed as a modular electromechanical system made up of
+            six major subassemblies: hull, mast-step assembly, sail, rudder, keel, and control
+            system. The hull served as the main structural platform, while the other systems were
+            integrated around stability, waterproofing, weight distribution, and navigation
+            requirements.
+          </p>
+
+          <h4>Hull</h4>
+          <p>
+            The hull functioned as the primary structural body of the vessel and supported all
+            other subassemblies. A flat-bottomed sharpie hull was selected for stability and
+            low-speed maneuverability. It was built using a stitch-and-glue method, then sealed
+            with fiberglass, epoxy, and gel coat.
+          </p>
+
+          <h4>Mast-Step Assembly</h4>
+          <p>
+            The mast-step assembly supported the mast and transferred sail loads into the hull.
+            It was made from 6061 aluminum and designed to allow horizontal translation of the
+            mast, helping the team adjust center of gravity during testing.
+          </p>
+
+          <h4>Sail</h4>
+          <p>
+            The sail system used a rigid wingsail concept with a NACA 0012 airfoil profile. The
+            structure included an aluminum mast, laser-cut balsa ribs, balsa leading-edge
+            components, carbon fiber rods, and Monokote wrapping. A rear trimming sail acted as a
+            control surface for adjusting the sail angle.
+          </p>
+
+          <h4>Rudder</h4>
+          <p>
+            The rudder was responsible for steering the sailboat and was mounted along the
+            longitudinal centerline at the transom. It was CNC machined from 6061 aluminum and
+            connected to a servo-driven linkage system.
+          </p>
+
+          <h4>Keel</h4>
+          <p>
+            The keel provided lateral resistance and directional stability. It was fabricated from
+            aluminum sheet and attached to reinforced hardpoints in the hull using angle brackets.
+          </p>
+
+          <h4>Control System</h4>
+          <p>
+            The control system acted as the decision-making and communication hub of the sailboat.
+            It used a Pixhawk 2.4.8 flight controller running ArduPilot, with Mission Planner used
+            for calibration, telemetry, and waypoint planning.
+          </p>
+
+          <h3>Controls & Electronics</h3>
+
+          <span class="image main">
+            <img src="images/Untitled (22).png" alt="Autonomous sailboat control system block diagram" />
+          </span>
+
+          <p>
+            The Pixhawk received GPS, telemetry, wind sensor, and RC transmitter inputs while
+            outputting control signals to the rudder servo, sail servo, and thruster ESC. This
+            architecture allowed the boat to operate in both autonomous waypoint mode and manual
+            override mode.
+          </p>
+
+          <span class="image main">
+            <img src="images/SCH_Schematic5_1-P1_2026-03-03 (1).png" alt="Autonomous sailboat electrical schematic" />
+          </span>
+
+          <p>
+            Power was supplied by a 12 V LiPo battery connected to a power module that regulated
+            the system down to 5 V and 3.3 V rails. Sensor input included a GPS NEO-M8N module,
+            telemetry radio, RS485 wind speed sensor, and RS485 wind direction sensor through an
+            SP3485 RS485-to-UART interface.
+          </p>
+
+          <h3>Testing & Results</h3>
+          <p>
+            The prototype went through hull, stability, controls, and full-system testing. Initial
+            hull tests identified leaks that were corrected using additional gel coat, epoxy, and
+            silicone. Stability testing showed that the boat returned upright from a 30-degree
+            lean with major components installed.
+          </p>
+
+          <p>
+            Indoor controls testing confirmed manual control of the sail and rudder, GPS/compass
+            calibration, and wind sensor communication. Outdoor testing demonstrated a successful
+            short autonomous waypoint mission of approximately 25–50 meters. The full 250–500
+            meter course was not completed due to high wind, water currents, stability challenges,
+            and outdoor sensor communication issues.
+          </p>
+
+          <h3>Reflection</h3>
+          <p>
+            This project showed how complex real-world engineering becomes when mechanical
+            systems, electronics, controls, software, and environmental uncertainty are combined.
+            It strengthened my understanding of system integration, fabrication planning,
+            controls troubleshooting, and iterative testing under real field conditions.
+          </p>
+        </article>
+
+        <!-- Personal -->
+        <article id="personal">
+          <h2 class="major">Personal</h2>
+
+          	<div class="personal-collage">
+				<div class="collage-photo collage-left">
+					<img src="images/cda05794cb165475f06b8034d4095ff4.jpeg" alt="Night portrait on film" />
+				</div>
+
+				<div class="collage-photo collage-center">
+					<img src="images/a511896d02070e8216a7f6a75bd5315c.jpeg" alt="Snow portrait on film" />
+				</div>
+
+				<div class="collage-photo collage-right">
+					<img src="images/435b8ee20c608e9cea276aa9f50d6fce.jpeg" alt="Outdoor portrait on film" />
+				</div>
 			</div>
 
-		<!-- BG -->
-			<div id="bg"></div>
+          <p>
+            Outside of engineering, I enjoy exploring new places, documenting moments, and
+            creating visual work. I see creativity as another form of problem-solving — whether I
+            am walking through a city with a film camera, designing a graphic layout, or editing a
+            video.
+          </p>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+          <h3>Exploration</h3>
+          <p>
+            I enjoy exploring cities, neighborhoods, museums, parks, and local spaces that reveal
+            how people live, build, and interact with their environment. Exploring helps me stay
+            curious and gives me new perspectives that influence how I think about design,
+            engineering, and storytelling.
+          </p>
 
-	</body>
+          <h3>Film Photography</h3>
+          <p>
+            Photography is one of my favorite ways to slow down and observe the world. I am
+            especially interested in film photography because it feels intentional and hands-on.
+            The process of choosing a frame, working with limited shots, and waiting to see the
+            final images makes each photo feel more meaningful. I enjoy capturing friends, city
+            life, architecture, and small everyday moments that feel honest and easy to miss.
+          </p>
+
+          <ul class="nav-buttons">
+            <li><a href="#film-gallery">View Film Gallery</a></li>
+          </ul>
+
+          <h3>Graphic Design & Digital Media</h3>
+          <p>
+            I also enjoy graphic design and digital media work using Adobe Photoshop, After
+            Effects, and Premiere Pro. I like using these tools to create visuals, edit videos,
+            design layouts, and experiment with motion graphics.
+          </p>
+
+          <h3>Creative Perspective</h3>
+          <p>
+            Whether I am building mechanical systems, editing a video, or taking photos, I enjoy
+            projects that combine technical skill with creativity. My personal interests help me
+            bring a more visual and human-centered perspective to my engineering work.
+          </p>
+        </article>
+
+        <!-- Film Gallery -->
+        <article id="film-gallery">
+          <h2 class="major">Film Gallery</h2>
+
+          <p>
+            A collection of film photographs focused on people, city movement, architecture, and
+            everyday scenes.
+          </p>
+
+          <div class="film-gallery-grid">
+
+            <figure class="gallery-item wide">
+              <a href="#photo-subway-portrait">
+                <img src="images/63e36609d1ded6daf0ad697070eb11ef.jpeg" alt="Film portrait inside a New York City subway car" />
+                <figcaption>Subway Portrait</figcaption>
+              </a>
+            </figure>
+
+            <figure class="gallery-item wide">
+              <a href="#photo-city-park">
+                <img src="images/fdb9db7d17f57823a840bc09de2d62e9.jpeg" alt="Street scene in a busy city park" />
+                <figcaption>City Park Movement</figcaption>
+              </a>
+            </figure>
+
+            <figure class="gallery-item wide">
+              <a href="#photo-bryant-park">
+                <img src="images/5ff49147f285082da8679834bd79cc23.jpeg" alt="Bryant Park scene with trees and people" />
+                <figcaption>Bryant Park Light</figcaption>
+              </a>
+            </figure>
+
+            <figure class="gallery-item wide">
+              <a href="#photo-open-space">
+                <img src="images/a2aa74e058d4260687039b3ff317776a.jpeg" alt="Open green city space surrounded by buildings" />
+                <figcaption>Open Space</figcaption>
+              </a>
+            </figure>
+
+            <figure class="gallery-item tall">
+              <a href="#photo-interior-study">
+                <img src="images/199e27649ac13b82f4f3858630503538.jpeg" alt="Interior staircase photographed on film" />
+                <figcaption>Interior Study</figcaption>
+              </a>
+            </figure>
+
+            <figure class="gallery-item wide">
+              <a href="#photo-street-rhythm">
+                <img src="images/786c57758951b9aeeaf86354e3ea2643.jpeg" alt="NYPD motorcycles on a busy city street" />
+                <figcaption>Street Rhythm</figcaption>
+              </a>
+            </figure>
+
+            <figure class="gallery-item wide">
+              <a href="#photo-friends-city">
+                <img src="images/2f05b59a63b5dd14edc30a012787ca08.jpeg" alt="Two friends posing in the city" />
+                <figcaption>Friends in the City</figcaption>
+              </a>
+            </figure>
+
+            <figure class="gallery-item wide">
+              <a href="#photo-group-portrait">
+                <img src="images/6c06765d715781b26a0d8a566864a535.jpeg" alt="Group portrait of friends" />
+                <figcaption>Group Portrait</figcaption>
+              </a>
+            </figure>
+
+            <figure class="gallery-item tall">
+              <a href="#photo-mirror-frame">
+                <img src="images/5c12dfea0f0c80c8e05483971cd1c6a8.jpeg" alt="Self portrait in a car side mirror holding a camera" />
+                <figcaption>Mirror Frame</figcaption>
+              </a>
+            </figure>
+
+            <figure class="gallery-item tall">
+              <a href="#photo-industrial-textures">
+                <img src="images/0f956d9f5917a113f89342afedc2a57b.jpeg" alt="Industrial site visit with workers in safety vests" />
+                <figcaption>Industrial Textures</figcaption>
+              </a>
+            </figure>
+
+            <figure class="gallery-item wide">
+              <a href="#photo-kitchen-color">
+                <img src="images/7877c4c86ecc4a65bf58d4b01ea161b7.jpeg" alt="Portrait of a person holding a tomato in a kitchen" />
+                <figcaption>Kitchen Color</figcaption>
+              </a>
+            </figure>
+
+            <figure class="gallery-item tall">
+              <a href="#photo-summer-portrait">
+                <img src="images/0735d7f045f5507cf6171c19031d0ee1.jpeg" alt="Outdoor portrait in patterned dress" />
+                <figcaption>Summer Portrait</figcaption>
+              </a>
+            </figure>
+
+            <figure class="gallery-item wide">
+              <a href="#photo-garden-portrait">
+                <img src="images/4fad9024836a18b6977d023c6418bbd4.jpeg" alt="Portrait near bright pink flowers" />
+                <figcaption>Garden Portrait</figcaption>
+              </a>
+            </figure>
+
+            <figure class="gallery-item wide">
+              <a href="#photo-chinatown-walk">
+                <img src="images/a273d9fd3d6fbe1465d7b426be8bdb28.jpeg" alt="Chinatown street scene photographed on film" />
+                <figcaption>Chinatown Walk</figcaption>
+              </a>
+            </figure>
+
+          </div>
+
+          <ul class="actions">
+            <li><a href="#personal" class="button">Back to Personal</a></li>
+          </ul>
+        </article>
+
+        <!-- Individual Photo Pages -->
+
+        <article id="photo-subway-portrait" class="photo-page">
+          <h2 class="major">Subway Portrait</h2>
+          <span class="image main">
+            <img src="images/63e36609d1ded6daf0ad697070eb11ef.jpeg" alt="Film portrait inside a New York City subway car" />
+          </span>
+          <p>
+            A portrait taken inside a New York City subway car. I liked the warmth of the flash,
+            the soft film grain, and the contrast between the subject’s stillness and the movement
+            of the train environment.
+          </p>
+          <ul class="actions">
+            <li><a href="#film-gallery" class="button">Back to Gallery</a></li>
+          </ul>
+        </article>
+
+        <article id="photo-city-park" class="photo-page">
+          <h2 class="major">City Park Movement</h2>
+          <span class="image main">
+            <img src="images/fdb9db7d17f57823a840bc09de2d62e9.jpeg" alt="Street scene in a busy city park" />
+          </span>
+          <p>
+            A city park scene filled with people, greenery, signs, and movement. I liked how the
+            frame captures the layered rhythm of New York — relaxed, crowded, and constantly shifting.
+          </p>
+          <ul class="actions">
+            <li><a href="#film-gallery" class="button">Back to Gallery</a></li>
+          </ul>
+        </article>
+
+        <article id="photo-bryant-park" class="photo-page">
+          <h2 class="major">Bryant Park Light</h2>
+          <span class="image main">
+            <img src="images/5ff49147f285082da8679834bd79cc23.jpeg" alt="Bryant Park scene with trees and people" />
+          </span>
+          <p>
+            A quiet Bryant Park moment framed through trees, umbrellas, flowers, and city architecture.
+            I liked how the light makes the scene feel calm even though the park is full of activity.
+          </p>
+          <ul class="actions">
+            <li><a href="#film-gallery" class="button">Back to Gallery</a></li>
+          </ul>
+        </article>
+
+        <article id="photo-open-space" class="photo-page">
+          <h2 class="major">Open Space</h2>
+          <span class="image main">
+            <img src="images/a2aa74e058d4260687039b3ff317776a.jpeg" alt="Open green city space surrounded by buildings" />
+          </span>
+          <p>
+            An open lawn surrounded by trees and tall buildings. This image captures the kind of
+            breathing room that makes a dense city feel softer and more human.
+          </p>
+          <ul class="actions">
+            <li><a href="#film-gallery" class="button">Back to Gallery</a></li>
+          </ul>
+        </article>
+
+        <article id="photo-interior-study" class="photo-page">
+          <h2 class="major">Interior Study</h2>
+          <span class="image main">
+            <img src="images/199e27649ac13b82f4f3858630503538.jpeg" alt="Interior staircase photographed on film" />
+          </span>
+          <p>
+            A study of interior architecture, light, and movement. The staircase, stone surfaces,
+            chandelier, and people moving through the frame create a formal but living composition.
+          </p>
+          <ul class="actions">
+            <li><a href="#film-gallery" class="button">Back to Gallery</a></li>
+          </ul>
+        </article>
+
+        <article id="photo-street-rhythm" class="photo-page">
+          <h2 class="major">Street Rhythm</h2>
+          <span class="image main">
+            <img src="images/786c57758951b9aeeaf86354e3ea2643.jpeg" alt="NYPD motorcycles on a busy city street" />
+          </span>
+          <p>
+            A street photograph focused on repetition, movement, and urban rhythm. The line of
+            motorcycles, pedestrians, buildings, and traffic gives the photo a strong sense of city pace.
+          </p>
+          <ul class="actions">
+            <li><a href="#film-gallery" class="button">Back to Gallery</a></li>
+          </ul>
+        </article>
+
+        <article id="photo-friends-city" class="photo-page">
+          <h2 class="major">Friends in the City</h2>
+          <span class="image main">
+            <img src="images/2f05b59a63b5dd14edc30a012787ca08.jpeg" alt="Two friends posing in the city" />
+          </span>
+          <p>
+            A simple portrait of two friends in the middle of the city. I liked the way the background
+            stays busy while the subjects feel grounded and direct.
+          </p>
+          <ul class="actions">
+            <li><a href="#film-gallery" class="button">Back to Gallery</a></li>
+          </ul>
+        </article>
+
+        <article id="photo-group-portrait" class="photo-page">
+          <h2 class="major">Group Portrait</h2>
+          <span class="image main">
+            <img src="images/6c06765d715781b26a0d8a566864a535.jpeg" alt="Group portrait of friends" />
+          </span>
+          <p>
+            A group portrait from a day out in the city. This photo feels personal because it captures
+            a shared moment with friends rather than only focusing on the location.
+          </p>
+          <ul class="actions">
+            <li><a href="#film-gallery" class="button">Back to Gallery</a></li>
+          </ul>
+        </article>
+
+        <article id="photo-mirror-frame" class="photo-page">
+          <h2 class="major">Mirror Frame</h2>
+          <span class="image main">
+            <img src="images/5c12dfea0f0c80c8e05483971cd1c6a8.jpeg" alt="Self portrait in a car side mirror holding a camera" />
+          </span>
+          <p>
+            A self-portrait through a car mirror. I liked how the mirror creates a frame within the
+            frame, making the camera and the act of taking the photo part of the image itself.
+          </p>
+          <ul class="actions">
+            <li><a href="#film-gallery" class="button">Back to Gallery</a></li>
+          </ul>
+        </article>
+
+        <article id="photo-industrial-textures" class="photo-page">
+          <h2 class="major">Industrial Textures</h2>
+          <span class="image main">
+            <img src="images/0f956d9f5917a113f89342afedc2a57b.jpeg" alt="Industrial site visit with workers in safety vests" />
+          </span>
+          <p>
+            A film photo from an industrial site visit. I was drawn to the pipes, hard hats, safety
+            vests, and structural density of the space — it felt like engineering as an environment.
+          </p>
+          <ul class="actions">
+            <li><a href="#film-gallery" class="button">Back to Gallery</a></li>
+          </ul>
+        </article>
+
+        <article id="photo-kitchen-color" class="photo-page">
+          <h2 class="major">Kitchen Color</h2>
+          <span class="image main">
+            <img src="images/7877c4c86ecc4a65bf58d4b01ea161b7.jpeg" alt="Portrait of a person holding a tomato in a kitchen" />
+          </span>
+          <p>
+            A warm indoor portrait built around color, expression, and everyday life. The tomato became
+            the center of the frame and gave the image a playful, personal feeling.
+          </p>
+          <ul class="actions">
+            <li><a href="#film-gallery" class="button">Back to Gallery</a></li>
+          </ul>
+        </article>
+
+        <article id="photo-summer-portrait" class="photo-page">
+          <h2 class="major">Summer Portrait</h2>
+          <span class="image main">
+            <img src="images/0735d7f045f5507cf6171c19031d0ee1.jpeg" alt="Outdoor portrait in patterned dress" />
+          </span>
+          <p>
+            An outdoor portrait focused on color, sunlight, and presence. The patterned dress and
+            green background make the image feel bright, expressive, and personal.
+          </p>
+          <ul class="actions">
+            <li><a href="#film-gallery" class="button">Back to Gallery</a></li>
+          </ul>
+        </article>
+
+        <article id="photo-garden-portrait" class="photo-page">
+          <h2 class="major">Garden Portrait</h2>
+          <span class="image main">
+            <img src="images/4fad9024836a18b6977d023c6418bbd4.jpeg" alt="Portrait near bright pink flowers" />
+          </span>
+          <p>
+            A portrait framed by bright flowers and natural color. I liked how the strong pink
+            background gives the photo a calm but vivid atmosphere.
+          </p>
+          <ul class="actions">
+            <li><a href="#film-gallery" class="button">Back to Gallery</a></li>
+          </ul>
+        </article>
+
+        <article id="photo-chinatown-walk" class="photo-page">
+          <h2 class="major">Chinatown Walk</h2>
+          <span class="image main">
+            <img src="images/a273d9fd3d6fbe1465d7b426be8bdb28.jpeg" alt="Chinatown street scene photographed on film" />
+          </span>
+          <p>
+            A street photograph from Chinatown, capturing signs, pedestrians, storefronts, and the density
+            of the neighborhood. I liked how much visual information exists in one frame.
+          </p>
+          <ul class="actions">
+            <li><a href="#film-gallery" class="button">Back to Gallery</a></li>
+          </ul>
+        </article>
+
+        <!-- Contact -->
+        <article id="contact">
+          <h2 class="major">Contact</h2>
+
+          <p>
+            Feel free to reach out for engineering projects, collaboration, design work, or
+            professional opportunities.
+          </p>
+
+          <ul class="icons">
+            <li>
+              <a href="mailto:aasante046@gmail.com" class="icon solid fa-envelope">
+                <span class="label">Email</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="icon brands fa-linkedin">
+                <span class="label">LinkedIn</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="icon brands fa-github">
+                <span class="label">GitHub</span>
+              </a>
+            </li>
+          </ul>
+        </article>
+
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <p class="copyright">&copy; Andy Asante. Design adapted from <a href="https://html5up.net">HTML5 UP</a>.</p>
+      </footer>
+
+    </div>
+
+    <!-- BG -->
+    <div id="bg"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+  </body>
 </html>
